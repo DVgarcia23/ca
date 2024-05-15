@@ -97,7 +97,7 @@
         function handleclear(){
             setCalc({
                 current: '0',
-            total: '',
+            total: '0',
             isInitial: true,
             preOp: ''
         });    
@@ -108,38 +108,38 @@
         function handleOperator(value){
             const total= docalculation();
             setCalc({
-                current: total.toString,
-                total: total.toString,
+                current: total.toString(),
+                total: total.toString(),
                 isInitial: true,
                 preOP: value
-            })
+            });
             }
            
             // for calculation function
             function doCalculation(){
-                let total="";
-                switch(operator){
+                let total= parseFloat(calc.total);
+                switch(calc.preOp){
                 case'*':
                     total *=parseFloat(cal.current); //equivalent to total = tolal * parseFloat(calc.current)
                     break;
                  case'/':
-                    total *=parseFloat(cal.current); //equivalent to total = tolal / parseFloat(calc.current)
+                    total /=parseFloat(cal.current); //equivalent to total = tolal / parseFloat(calc.current)
                     break;
                 case'+':
-                    total *=parseFloat(cal.current); //equivalent to total = tolal + parseFloat(calc.current)
+                    total +=parseFloat(cal.current); //equivalent to total = tolal + parseFloat(calc.current)
                     break;
                 case'-':
-                    total *=parseFloat(cal.current); //equivalent to total = tolal - parseFloat(calc.current)
+                    total -=parseFloat(cal.current); //equivalent to total = tolal - parseFloat(calc.current)
                     break;
                  default:
-                    total *=parseFloat(cal.current);
+                    total =parseFloat(cal.current)
                 }
                 return total;
             }
 
             // handle an operator when a buttom is clicked
             function handleOperator(value){
-                const total= docalculation();
+                const total= doCalculation();
             }
         
 
