@@ -93,6 +93,17 @@
             preOp: ''
         });
 
+        // handle clear button
+        function handleclear(){
+            setCalc(){
+                current: '0',
+            total: '',
+            isInitial: true,
+            preOp: ''
+        });    
+            }
+        }
+
         return (
             <div className="calculator">
                 <div className="display">{calc.current}</div>
@@ -112,7 +123,7 @@
                 <CalcButton value="3" onClick={handleNumber} />
                 <CalcButton className="operator" value="+" />
 
-                <CalcButton value="C" />
+                <CalcButton value="C" onClick={handleclear} />
                 <CalcButton value="0" onClick={handleNumber} />
                 <CalcButton className="operator" value="=" />
                 <CalcButton className="operator" value="-" />
