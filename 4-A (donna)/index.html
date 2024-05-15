@@ -83,7 +83,7 @@
             if (!calc.isInitial) {
                 newValue = calc.current + value;
             }
-            setCalc({ current: newValue, isInitial: false });
+            setCalc({ current: newValue, total: calc.total isInitial: false, preOp: calc.preOp });
         }
 
         const [calc, setCalc] = React.useState({
@@ -101,6 +101,45 @@
             isInitial: true,
             preOp: ''
         });    
+            }
+
+            
+// handle an operator when a buttom is clicked
+        function handleOperator(value){
+            const total= docalculation();
+            setCalc({
+                current: total.toString,
+                total: total.toString,
+                isInitial: true,
+                preOP: value
+            })
+            }
+           
+            // for calculation function
+            function doCalculation(){
+                let total="";
+                switch(operator){
+                case'*':
+                    total *=parseFloat(cal.current);
+                    break;
+                 case'/':
+                    total *=parseFloat(cal.current);
+                    break;
+                case'+':
+                    total *=parseFloat(cal.current);
+                    break;
+                case'-':
+                    total *=parseFloat(cal.current);
+                    break;
+                 default:
+                    total *=parseFloat(cal.current);
+                }
+                return total;
+            }
+
+            // handle an operator when a buttom is clicked
+            function handleOperator(value){
+                const total= docalculation();
             }
         
 
@@ -125,8 +164,8 @@
 
                 <CalcButton value="C" onClick={handleclear} />
                 <CalcButton value="0" onClick={handleNumber} />
-                <CalcButton className="operator" value="=" />
-                <CalcButton className="operator" value="-" />
+                <CalcButton className="operator" value="=" onClick={handleOperator}/>
+                <CalcButton className="operator" value="-" onClick={handleOperator}/>
             </div>
         );
     }
